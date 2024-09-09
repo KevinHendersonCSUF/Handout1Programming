@@ -1,5 +1,5 @@
 //-------------------------------------------------------------------------------------------------------------
-// Group names: Kevin Henderson, Anthony Le,
+// Group names: Henderson, Kevin and Le, Anthony and Gonong, Theo
 // Assignment : No.1
 // Due date : 9/11/24
 // Purpose: this program reads an expression in postfix form, evaluates the
@@ -44,7 +44,6 @@ int main() {
           stack.push(d);
         }
       }
-      // add another || statement for "/" (division) if professor says so
       else if (expression[i] == '+' || expression[i] == '-' ||
                expression[i] == '*') {
         if (expression[i] == '+') {
@@ -83,10 +82,10 @@ int main() {
           int multi = bottom * top;
           stack.push(multi);
         }
-      } else
+      } else //Tells compiler to stop at the $
         break;
     }
-    //Checks to see if stack only has one value at the end of all operations, if so, print the final value
+    //Checks to see if stack only has one value after stopping at $, if so, print the final value
     if (stack.size() == 1) {
       value = stack.top();
       std::cout << "Value = " << value << std::endl;
