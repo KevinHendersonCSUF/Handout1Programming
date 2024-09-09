@@ -43,9 +43,8 @@ int main() {
         if (expression[i] == 'd') {
           stack.push(d);
         }
-      }
-      else if (expression[i] == '+' || expression[i] == '-' ||
-               expression[i] == '*') {
+      } else if (expression[i] == '+' || expression[i] == '-' ||
+                 expression[i] == '*') {
         if (expression[i] == '+') {
           // assigns top of stack to top variable then pops that number
           int top = stack.top();
@@ -53,39 +52,36 @@ int main() {
           // assigns the new top of stack to bottom variable, then pops
           int bottom = stack.top();
           stack.pop();
-          // adds bottom + top accoring to postfix rules then adds that new
+          // adds bottom + top according to postfix rules then adds that new
           // number to stack
           int add = bottom + top;
           stack.push(add);
         }
         if (expression[i] == '-') {
-          // assigns top of stack to top variable then pops that number
           int top = stack.top();
           stack.pop();
-          // assigns the new top of stack to bottom variable, then pops
           int bottom = stack.top();
           stack.pop();
-          // subtracts bottom from top accoring to postfix rules then adds that
+          // subtracts bottom from top according to postfix rules then adds that
           // new number to stack
           int sub = bottom - top;
           stack.push(sub);
         }
         if (expression[i] == '*') {
-          // assigns top of stack to top variable then pops that number
           int top = stack.top();
           stack.pop();
-          // assigns the new top of stack to bottom variable, then pops
           int bottom = stack.top();
           stack.pop();
-          // multiplies bottom to top accoring to postfix rules then adds that
+          // multiplies bottom by top according to postfix rules then adds that
           // new number to stack
           int multi = bottom * top;
           stack.push(multi);
         }
-      } else //Tells compiler to stop at the $
+      } else // Tells compiler to stop at the $ using else statement
         break;
     }
-    //Checks to see if stack only has one value after stopping at $, if so, print the final value
+    // Checks to see if stack only has one value after stopping at $, if so,
+    // print the final value
     if (stack.size() == 1) {
       value = stack.top();
       std::cout << "Value = " << value << std::endl;
