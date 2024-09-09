@@ -1,11 +1,13 @@
 //-------------------------------------------------------------------------------------------------------------
-// Group names: Kevin Henderson, 
+// Group names: Kevin Henderson, Anthony Le, 
 // Assignment : No.1
 // Due date : 9/11/24
 // Purpose: this program reads an expression in postfix form, evaluates the expression
 // and displays its value
 //-----------------------------------------------------------------------------------------------------------------
 
+
+//BUGS TO BE FIXED: Logic error with value, program doesnt print correct value
 #include <iostream>
 #include <stack>
 #include <string>
@@ -19,6 +21,7 @@ int main(){
     std::cin >> a >> b >> c >> d;
     // infinite loop allows the user to either continue, or terminate the program
     while(true) {
+        int value = 0;
         std::stack<char> stack;
         std::cout << std::endl << "Enter a postfix expression with $ at the end: ";
         std::cin >> expression;
@@ -53,8 +56,44 @@ int main(){
                     int add = bottom + top;
                     stack.push(add); 
                 }
-                // do the same as above for each operand
+                if(expression[i] == '-'){
+                    // assigns top of stack to top variable then pops that number
+                    int top = stack.top();
+                    stack.pop();
+                   // assigns the new top of stack to bottom variable, then pops
+                    int bottom = stack.top();
+                    stack.pop();
+                    // subtracts bottom from top accoring to postfix rules then adds that new number to stack
+                    int sub = bottom - top;
+                    stack.push(sub); 
+                }
+                if(expression[i] == '*'){
+                    // assigns top of stack to top variable then pops that number
+                    int top = stack.top();
+                    stack.pop();
+                   // assigns the new top of stack to bottom variable, then pops
+                    int bottom = stack.top();
+                    stack.pop();
+                    // multiplies bottom to top accoring to postfix rules then adds that new number to stack
+                    int multi = bottom * top;
+                    stack.push(multi); 
+                }
             }
+            else
+            break;
+        }
+        if (stack.size() == 1) {
+            value = stack.top();
+            std::cout << "Value = " << value << std::endl;
+        }
+        char choice;
+        std::cout << "CONTINUE(y/n)?";
+        std::cin >> choice;
+        if(choice == 'n') {
+            break;
+        }
+        if (choice != 'y' && choice != 'n') {
+            std::cout << "invalid choice, terminating program" << std::endl;
         }
     }
 
