@@ -96,4 +96,5 @@ int main() {
       std::cout << "invalid choice, terminating program" << std::endl;
     }
   }
+  return 0;
 }
