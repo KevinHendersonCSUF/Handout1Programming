@@ -1,5 +1,5 @@
 //-------------------------------------------------------------------------------------------------------------
-// Group names: Henderson, Kevin and Le, Anthony and Gonong, Theo
+// Group names: Gonong, Theo and Henderson, Kevin and Le, Anthony
 // Assignment : No.1
 // Due date : 9/11/24
 // Purpose: this program reads an expression in postfix form, evaluates the
